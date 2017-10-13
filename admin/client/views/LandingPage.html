@@ -1,0 +1,19 @@
+<div class="container">
+  <table class="table table-striped">
+    <h1>List of users</h1>
+    <thead>
+     <tr>
+       <th>Username</th>
+       <th>Firstname</th>
+       <th>Lastname</th>
+     </tr>
+   </thead>
+      <tr ng-repeat="name in l">
+
+        <td><b>{{name.username}}<b></td>
+        <td>{{name.fname}}</td>
+        <td>{{name.lname}}</td>
+
+      </tr>
+  </table>
+</div>

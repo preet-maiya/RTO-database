@@ -1,0 +1,8 @@
+#ignore these files
+
+./index.js
+./node_modules/*
+./package.json
+./adminContoller.js
+./npm-debug.log
+./Public/*
