@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "RTO user portal.",
   "dependencies": {
+    "body-parser": ">=1.18.2",
+    "bootstrap": "^4.0.0-beta",
     "express": ">=4.16.2",
+    "jquery": "^3.2.1",
     "mysql": ">=2.15.0",
-    "body-parser": ">=1.18.2"
+    "popper.js": "^1.12.5"
   },
   "main": "server.js",
   "scripts": {

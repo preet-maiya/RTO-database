@@ -42,3 +42,18 @@ module.exports.register = function(req, res){
     res.send(true);}
 })
 }
+
+module.exports.get_name = function(req,res){
+  console.log(req.query);
+  var user = req.query.user;
+  var query = "select fname,lname from user_login where username = '"+user+"'";
+  connection.query(query, function(err, results, fields){
+    if(err)
+      console.log(err)
+    else
+    {
+      console.log(results)
+      res.send(results);
+    }
+    })
+}

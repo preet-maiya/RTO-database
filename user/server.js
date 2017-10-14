@@ -23,6 +23,7 @@ app.post('/register', userController.register)
 app.get('/LandingPage', function(req,res){
   res.send("<h1>You made it!!</h1>")
 })
+app.get('/get_name', userController.get_name)
 
 app.listen(8080, function(){
   console.log('8080')

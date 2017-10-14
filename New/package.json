@@ -1,0 +1,17 @@
+{
+  "name": "user_portal",
+  "version": "1.0.0",
+  "description": "RTO user portal.",
+  "dependencies": {
+    "express": ">=4.16.2",
+    "mysql": ">=2.15.0",
+    "body-parser": ">=1.18.2"
+  },
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
