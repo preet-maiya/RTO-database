@@ -1,0 +1,60 @@
+<style>
+  .rto_list{
+     margin-left: 500px;
+
+  }
+
+  .table_data{
+    padding: 15px 5px 15px 15px;
+    font-weight:bold;
+    width:80px;
+    font-size: 2.0em;
+  }
+  .input_field{
+    float: right;
+    clear: both;
+  }
+</style>
+
+<div class="container">
+
+<h3><b>Enter Details</b></h3>
+
+  <table align="center" class="forms" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 100%;">
+  <select class="rto_list" ng-model="rto_name" ng-options="x for x in list">
+    <option value="">--Select RTO here--</option>
+</select>
+ <br><br><br>
+ <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;" class="forms" cellspacing="1" cellpadding="1" align="center" width="100%">
+                 <tbody>
+                   <td class="table_data">First Name<span style="color: red">*</span><input ng-model="fname" class="input_field"></input></td>
+                   <td class="table_data">Last Name<span style="color: red">*</span><input ng-model="lname" class="input_field"></input></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Select Gender
+                     <input style="margin-left: 64px;margin-right:16px" type="radio" ng-model="gender" value="male">Male
+                     <input style="margin-right:16px" type="radio" ng-model="gender" value="female">Female
+                     <input style="margin-right:16px" type="radio" ng-model="gender" value="others">Others
+                   </td>
+                   <td class="table_data">E-mail id<input type="email" ng-model="email" class="input_field"></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Aadhar Number<input ng-model="aadhar" class="input_field"></input></td>
+                   <td class="table_data">Mobile Number<span style="color: red">*</span><input type="text" pattern="[789][0-9]{9}" ng-model="mobile" class="input_field"></input></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Permanent Address<span style="color: red">*</span><textarea ng-model="perm_address" class="input_field"></textarea></td>
+                   <td class="table_data">Temporary Address<textarea ng-model="temp__address" class="input_field"></textarea></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">City<span style="color: red">*</span><input ng-model="perm_city" class="input_field"></input></td>
+                   <td class="table_data">City<input ng-model="temp_city" class="input_field"></input></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Pin Code<span style="color: red">*</span><input ng-model="perm_pin" class="input_field"></input></td>
+                   <td class="table_data">Pin Code<input ng-model="temp_pin" class="input_field"></input></td>
+                 </tbody>
+ </table>
+ <span style="color:Red">{{err}}</span>
+<div><button ng-click="next()" style="margin:auto; display:block;">Next</button></div>
+</div>

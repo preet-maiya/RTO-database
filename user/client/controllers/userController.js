@@ -1,15 +1,14 @@
 var app = angular.module("app");
 
 app.controller('userController', function($scope, $http, $location, $cookieStore, ActiveUser){
-  if($cookieStore.get('name')){
+  if($cookieStore.get('user')!=null){
     $location.path('/LandingPage').replace();
   }
   $scope.page = "Login";
-  $scope.userid="";
+  $scope.userid=="";
   $scope.password="";
   $scope.error="";
   $scope.register = function () {
-    $scope.userid="preetam"
     $location.path('/register').replace();
   };
   $scope.login = function() {

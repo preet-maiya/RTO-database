@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngResource','ngRoute','ngCookies']);
+var app = angular.module('app', ['ngResource','ngRoute','ngCookies','ngFileUpload']);
 
 app.config(function($routeProvider){
   $routeProvider
@@ -14,10 +14,14 @@ app.config(function($routeProvider){
     templateUrl: './views/userRegister.html',
     controller: 'userRegisterController'
   })
-  /*.when('/learnersLicence', {
-    templateUrl: './views/learnersLicenceForm.html'
-    controller: 'learnersLicenceFormController'
-  })*/
+  .when('/learnersLicenceForm', {
+    templateUrl: './views/learnerLicenseForm.html',
+    controller: 'learnerLicenseFormController'
+  })
+  .when('/learnersLicenceForm1',{
+    templateUrl: './views/learnerLicenseForm1.html',
+    controller: 'learnerLicenseForm1'
+  })
   .otherwise({
    redirectTo: '/login'
  })
@@ -33,6 +37,19 @@ app.factory('ActiveUser', function() {
     },
     setuser: function(val) {
       who.user = val
+    }
+  }
+})
+
+app.factory('formData', function(){
+  var data = null;
+
+  return{
+    getdata: function() {
+      return data;
+    },
+    putdata: function(d) {
+      data = d;
     }
   }
 })

@@ -15,7 +15,7 @@ app.controller('userRegisterController', function($scope, $http, $location, Acti
       $http({
         url: '/register',
         method: 'post',
-        data: {"userid": $scope.userid, "password": $scope.password}
+        data: {"userid": $scope.userid, "password": $scope.password, "fname": $scope.fname, "lname": $scope.lname}
 
       }).then(function(data){
         if(data.data===true){

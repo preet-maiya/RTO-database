@@ -1,12 +1,12 @@
 var app = angular.module("app");
 
-app.controller('landingPageController', function($scope, $resource, $cookieStore,$location, ActiveUser){
+app.controller('landingPageController', function($scope, $resource, $cookieStore,$location, ActiveUser,formData){
   var username = ActiveUser.getuser();
   var user =  $cookieStore.get('user');
-  /*if(user===null)
+  if(user===null)
   {
     $location.path('/login').replace();
-  }*/
+  }
   var name = $resource('/get_name');
   name.query({user:user}, function(results){
     $scope.fnameCookie = results[0].fname;
@@ -15,5 +15,17 @@ app.controller('landingPageController', function($scope, $resource, $cookieStore
   $scope.logout = function(){
     $cookieStore.put('user', null);
     $location.path('/login').replace();
+  }
+
+  $scope.learnersLicence = function(){
+    /*$http({
+      url: '/learnersLicenceForm',
+      method: 'post',
+      data:{'user': user}
+    }).then(function(data){
+      if(data.response)
+      $location.path('/learnersLicenceForm.html').replace();
+    })*/
+    $location.path('/learnersLicenceForm').replace();
   }
 })
