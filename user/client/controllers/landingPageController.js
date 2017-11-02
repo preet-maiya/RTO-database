@@ -28,4 +28,13 @@ app.controller('landingPageController', function($scope, $resource, $cookieStore
     })*/
     $location.path('/learnersLicenceForm').replace();
   }
+  var name = $resource('/applied_learners');
+  name.query({user:user}, function(results){
+    $scope.applied_learners = results;
+  })
+
+  var name = $resource('/confirmed_learners');
+  name.query({user:user}, function(results){
+    $scope.confirmed_learners = results;
+  })
 })

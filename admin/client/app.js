@@ -10,6 +10,10 @@ app.config(function($routeProvider){
     templateUrl: './views/LandingPage.html',
     controller: 'landingPageController'
   })
+  .when('/learnerLicense', {
+    templateUrl: './views/learnerLicense.html',
+    controller: 'learnerLicenseController'
+  })
   .otherwise({
    redirectTo: '/login'
  })

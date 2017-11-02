@@ -1,10 +1,8 @@
 var app = angular.module("app");
 
-app.controller('userRegisterController', function($scope, $http, $location, ActiveUser){
+app.controller('userRegisterController', function($scope, $http, $location, ActiveUser,$cookieStore){
   $scope.page = "Register";
   $scope.userid="";
-  $scope.password="";
-  $scope.password_again=""
   $scope.error="";
   $scope.register = function() {
     if($scope.password!==$scope.password_again)
@@ -20,6 +18,7 @@ app.controller('userRegisterController', function($scope, $http, $location, Acti
       }).then(function(data){
         if(data.data===true){
           $scope.error = ''
+          $cookieStore.put('user', $scope.user)
           $location.path('/login').replace();
           $scope.$apply()
         }

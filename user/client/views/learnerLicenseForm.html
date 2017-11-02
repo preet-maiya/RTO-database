@@ -1,7 +1,7 @@
 <style>
   .rto_list{
-     margin-left: 500px;
-
+     margin-left: 300px;
+     margin-right: 32px;
   }
 
   .table_data{
@@ -19,16 +19,19 @@
 <div class="container">
 
 <h3><b>Enter Details</b></h3>
-
+  <form ng-submit="next()">
   <table align="center" class="forms" style="font-family: Arial, Helvetica, sans-serif; font-size: 12px; width: 100%;">
   <select class="rto_list" ng-model="rto_name" ng-options="x for x in list">
     <option value="">--Select RTO here--</option>
+  </select>
+  <select class="type" ng-model="type" ng-options="y for y in list_type">
+    <option value="">--Select type here--</option>
 </select>
  <br><br><br>
  <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;" class="forms" cellspacing="1" cellpadding="1" align="center" width="100%">
                  <tbody>
-                   <td class="table_data">First Name<span style="color: red">*</span><input ng-model="fname" class="input_field"></input></td>
-                   <td class="table_data">Last Name<span style="color: red">*</span><input ng-model="lname" class="input_field"></input></td>
+                   <td class="table_data">First Name<span style="color: red">*</span><input ng-model="fname" class="input_field" pattern="[A-Za-z]+"></input></td>
+                   <td class="table_data">Last Name<span style="color: red">*</span><input ng-model="lname" class="input_field" pattern="[A-Za-z]+"></input></td>
                  </tbody>
                  <tbody>
                    <td class="table_data">Select Gender
@@ -51,10 +54,11 @@
                    <td class="table_data">City<input ng-model="temp_city" class="input_field"></input></td>
                  </tbody>
                  <tbody>
-                   <td class="table_data">Pin Code<span style="color: red">*</span><input ng-model="perm_pin" class="input_field"></input></td>
+                   <td class="table_data">Pin Code<span style="color: red">*</span><input ng-model="perm_pin" class="input_field" pattern="[0-9]{6}"></input></td>
                    <td class="table_data">Pin Code<input ng-model="temp_pin" class="input_field"></input></td>
                  </tbody>
  </table>
  <span style="color:Red">{{err}}</span>
-<div><button ng-click="next()" style="margin:auto; display:block;">Next</button></div>
+<div><button type="submit" style="margin:auto; display:block;">Next</button></div>
+</form>
 </div>

@@ -39,3 +39,26 @@ module.exports.get_all = function(req,res){
     }
   })
 }
+
+module.exports.learenrList = function(req,res){
+  query = 'select application_no,user,fname,lname,id_proof,age_proof from learnerlicense where passed = "false"'
+  connection.query(query, function(err, results, fields){
+    if(err) console.log(err)
+    else {
+      console.log(results)
+      res.send(results)
+    }
+  })
+}
+
+module.exports.approve = function(req,res){
+  user = req.body.user;
+  no = req.body.no;
+  query = "update learnerlicense set passed='true' where user='"+user+"' and application_no="+no
+  connection.query(query, function(err,results,fields){
+    if (err) {console.log(err);res.json({success:false, error: err})}
+    else {console.log(results);res.json({success:true})}
+  })
+}
+
+//module.exports.delte

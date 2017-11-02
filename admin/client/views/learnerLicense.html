@@ -1,0 +1,29 @@
+<h1></h1>
+
+<div class="container">
+  <table class="table table-striped">
+    <h1>List of Learners License applications</h1>
+    <thead>
+     <tr>
+       <th>Username</th>
+       <th>First Name</th>
+       <th>Last Name</th>
+       <th>application no</th>
+       <th>Age Proof</th>
+       <th></th>
+       <th>ID Proof</th>
+       <th>Action</th>
+     </tr>
+   </thead>
+      <tr ng-repeat="name in l">
+
+        <td><b>{{name.user}}<b></td>
+        <td>{{name.fname}}</td>
+        <td>{{name.lname}}</td>
+        <td>{{name.application_no}}</td>
+        <td><a href="{{name.age_proof}}">See</a><td>
+        <td><a href="{{name.id_proof}}">See</a></td>
+        <td><a href="" ng-click="approve(name.user, name.application_no)">Approve</a>/<a href="" ng-click="delete(name.application_no)">Delete</a></td>
+      </tr>
+  </table>
+</div>

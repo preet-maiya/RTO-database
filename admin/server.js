@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json())
 
 app.use('/', express.static(__dirname + '/client/'));
+app.use('/uploads', express.static(__dirname + '/../user/uploads/'));
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/client/index.html');
 });
@@ -23,7 +24,8 @@ app.get('/LandingPage', function(req,res){
   res.send("<h1>You made it!!</h1>")
 });
 app.get('/get_all', adminController.get_all)
-
+app.get('/learnerList', adminController.learenrList)
+app.post('/approve', adminController.approve)
 app.listen(8081, function(){
   console.log('8081')
 })

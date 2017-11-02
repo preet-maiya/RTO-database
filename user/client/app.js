@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ngResource','ngRoute','ngCookies','ngFileUpload']);
 
-app.config(function($routeProvider){
+app.config(function($routeProvider, $locationProvider){
   $routeProvider
   .when('/login', {
     templateUrl:'./views/userLogin.html',
@@ -25,6 +25,7 @@ app.config(function($routeProvider){
   .otherwise({
    redirectTo: '/login'
  })
+ //$locationProvider.html5Mode(true);
 })
 
 app.factory('ActiveUser', function() {
