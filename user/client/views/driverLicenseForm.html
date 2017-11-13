@@ -1,0 +1,64 @@
+<style>
+  .rto_list{
+     margin-left: 200px;
+     margin-right: 32px;
+  }
+
+  .table_data{
+    padding: 15px 5px 15px 15px;
+    font-weight:bold;
+    width:80px;
+    font-size: 2.0em;
+  }
+  .input_field{
+    float: right;
+    clear: both;
+  }
+</style>
+
+<div class="container">
+
+<h3><b>Enter Details<span style="color: red">*</span></b></h3>
+<form ng-submit="getDetails()">
+<input style="margin-right: 24px" type="text" ng-model="ll_no"/><b>Enter the LL number{{error}}</b>
+<br><button>Get details</button>
+</form>
+  <form ng-submit="next()">
+</select>
+ <br><br><br>
+ <table style="font-family: Arial, Helvetica, sans-serif; font-size: 12px;" class="forms" cellspacing="1" cellpadding="1" align="center" width="100%">
+                 <tbody>
+                   <td class="table_data">RTO Name<span style="color: red"></span><span class="input_field" >{{rto}}</span></td>
+                   <td class="table_data">Type of DL<span style="color: red"></span><span class="input_field" >{{type}}</span></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">First Name<span style="color: red"></span><span class="input_field" >{{fname}}</span></td>
+                   <td class="table_data">Last Name<span style="color: red"></span><span class="input_field" >{{lname}}</span></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Gender<span style="color: red"></span><span class="input_field" >{{gender}}</span></td>
+                   <td class="table_data">E-mail id<input type="email" ng-model="email" class="input_field"></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Aadhar Number<span style="color: red"></span><span style="float: right;clear: both"></span>{{aadhar}}</td>
+                   <td class="table_data">Mobile Number<span style="color: red"></span><input type="text" pattern="[789][0-9]{9}" ng-model="mobile" class="input_field"></input></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Permanent Address<span style="color: red"></span><textarea ng-model="perm_addr" class="input_field"></textarea></td>
+                   <td class="table_data">Temporary Address<textarea ng-model="temp__address" class="input_field"></textarea></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">City<span style="color: red"></span><input ng-model="perm_city" class="input_field"></input></td>
+                   <td class="table_data">City<input ng-model="temp_city" class="input_field"></input></td>
+                 </tbody>
+                 <tbody>
+                   <td class="table_data">Pin Code<span style="color: red"></span><input ng-model="perm_pin" class="input_field" pattern="[0-9]{6}"></input></td>
+                   <td class="table_data">Pin Code<input ng-model="temp_pin" class="input_field"></input></td>
+                 </tbody>
+ </table>
+   <span style="color:Red">{{err}}</span>
+
+<div><button type="submit" style="margin:auto; display:block;">Next</button></div>
+</form>
+<span style="color: red">*</span><span>Uses same age proof and ID proof of Learners Licence</span>
+</div>

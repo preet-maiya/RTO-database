@@ -28,6 +28,12 @@ app.controller('landingPageController', function($scope, $resource, $cookieStore
     })*/
     $location.path('/learnersLicenceForm').replace();
   }
+  $scope.driversLicence = function() {
+    $location.path('/driversLicenceForm').replace();
+  }
+  $scope.registerVehicle = function() {
+    $location.path('/registerVehicleForm').replace();
+  }
   var name = $resource('/applied_learners');
   name.query({user:user}, function(results){
     $scope.applied_learners = results;
@@ -36,5 +42,15 @@ app.controller('landingPageController', function($scope, $resource, $cookieStore
   var name = $resource('/confirmed_learners');
   name.query({user:user}, function(results){
     $scope.confirmed_learners = results;
+  })
+
+  var name = $resource('/applied_drivers')
+  name.query({user:user}, function(results){
+    $scope.applied_drivers = results;
+  })
+
+  var name = $resource('/confirmed_drivers')
+  name.query({user:user}, function(results){
+    $scope.confirmed_drivers = results;
   })
 })

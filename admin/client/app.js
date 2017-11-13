@@ -14,6 +14,14 @@ app.config(function($routeProvider){
     templateUrl: './views/learnerLicense.html',
     controller: 'learnerLicenseController'
   })
+  .when('/driverLicense', {
+    templateUrl: './views/driverLicense.html',
+    controller: 'driverLicenseController'
+  })
+  .when('/vehicle', {
+    templateUrl: './views/vehicle.html',
+    controller: 'vehicleController'
+  })
   .otherwise({
    redirectTo: '/login'
  })

@@ -22,6 +22,14 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: './views/learnerLicenseForm1.html',
     controller: 'learnerLicenseForm1'
   })
+  .when('/driversLicenceForm', {
+    templateUrl: './views/driverLicenseForm.html',
+    controller: 'driverLicenseFormController'
+  })
+  .when('/registerVehicleForm', {
+    templateUrl: './views/registerVehicle.html',
+    controller: 'registerVehicleController'
+  })
   .otherwise({
    redirectTo: '/login'
  })

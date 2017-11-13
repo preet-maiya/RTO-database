@@ -26,6 +26,11 @@ app.get('/LandingPage', function(req,res){
 app.get('/get_all', adminController.get_all)
 app.get('/learnerList', adminController.learenrList)
 app.post('/approve', adminController.approve)
+app.post('/delete', adminController.delete)
+app.get('/driverList', adminController.driverList)
+app.post('/approveDriver', adminController.approveDriver)
+app.post('/deleteDriver', adminController.deleteDriver)
+app.get('/vehicleList', adminController.vehicleList)
 app.listen(8081, function(){
   console.log('8081')
 })

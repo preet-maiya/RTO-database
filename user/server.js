@@ -66,7 +66,11 @@ app.get('/applied_learners', userController.applied_learners);
 app.get('/confirmed_learners', userController.confirmed_learners);
 
 app.post('/learnersLicenceForm1', userController.learnersLicenceForm1)
-
+app.get('/getLearnersLicenceDetails', userController.getLearnerLicenseDetails)
+app.post('/driversLicence', userController.driversLicence)
+app.post('/vehicleRegister', userController.vehicleRegister)
+app.get('/applied_drivers', userController.applied_drivers);
+app.get('/confirmed_drivers', userController.confirmed_drivers);
 app.post('/upload', function(req, res) {
         upload(req,res,function(err){
             if(err){

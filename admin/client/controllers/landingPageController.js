@@ -11,4 +11,10 @@ app.controller('landingPageController', function($resource,$scope,$location){
   $scope.learnerLicense = function(){
     $location.path('/learnerLicense').replace()
   }
+  $scope.driverLicense = function(){
+    $location.path('/driverLicense').replace()
+  }
+  $scope.vehicle = function(){
+    $location.path('/vehicle').replace()
+  }
 })

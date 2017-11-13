@@ -61,4 +61,61 @@ module.exports.approve = function(req,res){
   })
 }
 
-//module.exports.delte
+module.exports.delete = function(req,res) {
+  no = req.body.no;
+  query = "delete from learnerlicense where application_no = "+no;
+  //query = "update learnerlicense set passed='true' where user='"+user+"' and application_no="+no
+  connection.query(query, function(err,results,fields){
+    if (err) {console.log(err);res.json({success:false, error: err})}
+    else {console.log(results);res.json({success:true})}
+  })
+}
+
+module.exports.driverList = function(req,res){
+  query = 'select * from driverlicense where passed = "false"'
+  connection.query(query, function(err, results, fields){
+    if(err) console.log(err)
+    else {
+      console.log(results)
+      res.send(results)
+    }
+  })
+}
+
+module.exports.approveDriver = function(req,res){
+  console.log(req.body);
+  user = req.body.user;
+  no = req.body.no;
+  query = "update driverlicense set passed='true' where user='"+user+"' and application_no="+no
+  connection.query(query, function(err,results,fields){
+    if (err) {console.log(err);res.json({success:false, error: err})}
+    else {
+      q = "delete from learnerlicense where application_no = "+req.body.ll;
+      connection.query(q, function(err, results, fields){
+        if(err) console.log(err)
+        else console.log("Deleted from ll list")
+      })
+      console.log(results);res.json({success:true})}
+  })
+}
+
+module.exports.deleteDriver = function(req,res) {
+  no = req.body.no;
+  query = "delete from driverlicense where application_no = "+no;
+  //query = "update learnerlicense set passed='true' where user='"+user+"' and application_no="+no
+  connection.query(query, function(err,results,fields){
+    if (err) {console.log(err);res.json({success:false, error: err})}
+    else {console.log(results);res.json({success:true})}
+  })
+}
+
+module.exports.vehicleList = function(req,res) {
+  query = "select * from vehicle";
+  connection.query(query, function(err, results, fields){
+    if(err) console.log(err)
+    else {
+      console.log(results)
+      res.send(results)
+    }
+  })
+}

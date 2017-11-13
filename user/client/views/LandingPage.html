@@ -82,8 +82,8 @@
           <p class="lead">Apply for license, register a vehicle or get a fitness certificate!!!</p>
           <ul class="list-unstyled">
             <li><a href="" ng-click="learnersLicence()">Apply for Learners Licence<a></li>
-            <li><a href="">Apply for Drivers Licence</a></li>
-            <li><a href="">Apply for vehicle Registration</a></li>
+            <li><a href="" ng-click="driversLicence()">Apply for Drivers Licence</a></li>
+            <li><a href="" ng-click="registerVehicle()">Apply for vehicle Registration</a></li>
             <li><a href="">See any pending fines</a></li>
           </ul>
         </div>
@@ -114,20 +114,58 @@
                 <h1>List of confirmed learners</h1>
                 <thead>
                  <tr>
-                   <th>application Number</th>
+                   <th>Learners License Number</th>
                    <th>RTO name</th>
                    <th>Type of LL</th>
                  </tr>
                </thead>
                   <tr ng-repeat="name in confirmed_learners">
 
-                    <td><b>{{name.application_no}}<b></td>
+                    <td><b>{{name.ll_no}}<b></td>
                       <td>{{name.type}}</td>
                     <td>{{name.rto}}</td>
                     <td
                   </tr>
               </table>
             </div>
+            <div class="container" style="margin-top:64px">
+                  <table class="table table-striped">
+                    <h1>List of applied drivers</h1>
+                    <thead>
+                     <tr>
+                       <th>Drivers License Number</th>
+                       <th>RTO name</th>
+                       <th>Type of DL</th>
+                     </tr>
+                   </thead>
+                      <tr ng-repeat="name in applied_drivers">
+
+                        <td><b>{{name.application_no}}<b></td>
+                          <td>{{name.type}}</td>
+                        <td>{{name.rto}}</td>
+                        <td
+                      </tr>
+                  </table>
+                </div>
+                <div class="container" style="margin-top:64px">
+                      <table class="table table-striped">
+                        <h1>List of confirmed drivers</h1>
+                        <thead>
+                         <tr>
+                           <th>Drivers License Number</th>
+                           <th>RTO name</th>
+                           <th>Type of DL</th>
+                         </tr>
+                       </thead>
+                          <tr ng-repeat="name in confirmed_drivers">
+
+                            <td><b>{{name.dl_no}}<b></td>
+                              <td>{{name.type}}</td>
+                            <td>{{name.rto}}</td>
+                            <td
+                          </tr>
+                      </table>
+                    </div>
     <!-- Bootstrap core JavaScript -->
 
   </body>

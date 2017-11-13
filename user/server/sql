@@ -1,1 +1,5 @@
-create table learnerlicense(application_no int primary key,user varchar(15),fname varchar(15), lname varchar(15), mobile char(10),perm_addr varchar(50), perm_city varchar(10), perm_pin char(6), gender varchar(7), email varchar(20), aadhar varchar(15), temp_addr varchar(50), temp_city varchar(15), temp_pin char(6),foreign key (user) references user_login(username) );
+create table learnerlicense(application_no int primary key,user varchar(15),fname varchar(15), lname varchar(15), mobile char(10),perm_addr varchar(50), perm_city varchar(10), perm_pin char(6), gender varchar(7), email varchar(20), aadhar varchar(15), temp_addr varchar(50), temp_city varchar(15), temp_pin char(6),ll_no int);
+
+
+create table driverlicense(application_no int primary key,user varchar(15),fname varchar(15), lname varchar(15), mobile char(10),perm_addr varchar(50), perm_city varchar(10), perm_pin char(6), gender varchar(7), email varchar(20), aadhar varchar(15), temp_addr varchar(50), temp_city varchar(15), temp_pin char(6),dl_no int);
+
