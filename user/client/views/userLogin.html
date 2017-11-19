@@ -18,7 +18,7 @@ img.bg {
     <form name="form" ng-submit="login()" role="form">
         <div class="form-group">
             <label for="username ">Username</label>
-            <input type="text" name="userid" id="username" class="form-control" ng-model="userid" required pattern="[A-Za-z]+" />
+            <input type="text" name="userid" id="username" class="form-control" ng-model="userid" required pattern="[A-Za-z0-9]+" />
             <span class="help-block">Username is required</span>
         </div>
         <div class="form-group">

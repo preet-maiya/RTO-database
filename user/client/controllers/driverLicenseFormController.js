@@ -25,6 +25,7 @@ app.controller('driverLicenseFormController', function($scope,$http,$location,$c
       $scope.temp_addr = "google"
     }
   }
+  data1,perm_city = $scope.perm_city
     formData.putdata(data1);
   if(data1.fname==null || data1.lname==null || data1.perm_addr==null || data1.perm_city===null || data1.perm_pin===null || data1.mobile===null || data1.type===null)
   $scope.err = "One or more required fields missing!";
