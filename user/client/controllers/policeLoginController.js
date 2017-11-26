@@ -1,22 +1,22 @@
 var app = angular.module("app");
 
-app.controller('userController', function($scope, $http, $location, $cookieStore, ActiveUser){
-  if($cookieStore.get('user')!=null){
-    $location.path('/LandingPage').replace();
+app.controller('policeLoginController', function($scope, $http, $location, $cookieStore, ActiveUser){
+  if($cookieStore.get('police')!=null){
+    $location.path('/fine').replace();
   }
-  $scope.police = function(){
-    $location.path('/policeLogin').replace();
+  $scope.user = function(){
+    $location.path('/login').relace();
   }
   $scope.page = "Login";
   $scope.userid=="";
   $scope.password="";
   $scope.error="";
   $scope.register = function () {
-    $location.path('/register').replace();
+    $location.path('/policeRegister').replace();
   };
   $scope.login = function() {
     $http({
-      url: '/login',
+      url: '/policeLogin',
       method: 'post',
       data: {"userid": $scope.userid, "password": $scope.password}
 
@@ -25,7 +25,7 @@ app.controller('userController', function($scope, $http, $location, $cookieStore
         $scope.error = ''
         ActiveUser.setuser($scope.userid);
         $cookieStore.put('user', $scope.userid)
-        $location.path('/LandingPage').replace();
+        $location.path('/fines').replace();
         $scope.$apply()
     }
     else

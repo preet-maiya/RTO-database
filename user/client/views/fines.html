@@ -1,0 +1,52 @@
+<div class='page-header'>
+  <div class='btn-toolbar pull-right'>
+    <div class='btn-group'>
+      <button type='button' class='btn btn-primary' ng-click="logout()">Logout</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-2 col-md-offset-5">
+      <form name="form" ng-submit="fine()" role="form">
+          <div class="form-group">
+              <label for="VehicleNumber ">Vehicle Number</label>
+              <select class="rto_list" ng-model="rto" ng-options="x for x in list">
+                <option value="">--Select RTO here--</option>
+              </select>
+              <input type="number" ng-model="no"/>
+          </div>
+          {{rto}}  {{no}}
+          <div class="form-group">
+            <label for="VehicleNumber ">Violation Number</label>
+            <input type="number" ng-model="violation_no"/>
+          </div>
+          <span style="color: red">{{err}}</span>
+          <span style="color: green">{{success}}</span>
+          <div class="form-actions" style="padding-top:16p">
+              <button type="submit" type="margin-left: 64px" class="btn btn-warning">Submit</button>
+          </div>
+    </div>
+    <div>
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Act</th>
+              <th>Reason</th>
+              <th>Fine(₹)</th>
+            </tr>
+          </thead>
+          <tr ng-repeat="v in violations">
+
+            <td><b>{{v.no}}<b></td>
+              <td>{{v.act}}</td>
+              <td>{{v.reason}}</td>
+              <td>{{v.fine}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+</div>

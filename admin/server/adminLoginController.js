@@ -110,7 +110,7 @@ module.exports.deleteDriver = function(req,res) {
 }
 
 module.exports.vehicleList = function(req,res) {
-  query = "select * from vehicle";
+  query = "select * from vehicle where passed='false'";
   connection.query(query, function(err, results, fields){
     if(err) console.log(err)
     else {
@@ -119,3 +119,13 @@ module.exports.vehicleList = function(req,res) {
     }
   })
 }
+
+module.exports.vehiclenumber = function (req,res) {
+  console.log(req.body);
+  query = "update vehicle set passed = 'true', regno='"+req.body.sequence+"' where application_no = "+req.body.no;
+  connection.query(query, function(err,results,fields){
+    if(err)
+    {console.log(err);res.json({success:false, error: err})}
+    else{console.log(results);res.json({success:true})}
+  })
+};

@@ -5,6 +5,7 @@ var mysql = require('mysql')
 var bodyParser = require('body-parser')
 var morgan = require('morgan')
 var userController = require('./server/userLoginController')
+var policeController = require('./server/policeController')
 var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
@@ -81,6 +82,11 @@ app.post('/upload', function(req, res) {
              res.json({error_code:0,err_desc:null});
         });
     });
+
+app.post('/policeLogin',policeController.login);
+app.post('/policeRegister', policeController.register);
+app.get('/getViolations', policeController.getViolations);
+app.post('/fine', policeController.fine);
 
 app.listen(8080, function(){
   console.log('8080')

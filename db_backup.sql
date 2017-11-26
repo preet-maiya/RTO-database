@@ -40,6 +40,36 @@ INSERT INTO `admin_login` VALUES ('admin','admin123');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `booking`
+--
+
+DROP TABLE IF EXISTS `booking`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `booking` (
+  `regno` varchar(10) NOT NULL,
+  `violationno` varchar(3) NOT NULL,
+  `police` varchar(15) NOT NULL,
+  `time` varchar(10) DEFAULT NULL,
+  `date` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`regno`,`violationno`,`police`),
+  KEY `violationno` (`violationno`),
+  KEY `police` (`police`),
+  CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`violationno`) REFERENCES `violations` (`no`),
+  CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`police`) REFERENCES `police_login` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `booking`
+--
+
+LOCK TABLES `booking` WRITE;
+/*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+/*!40000 ALTER TABLE `booking` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `driverlicense`
 --
 
@@ -68,6 +98,7 @@ CREATE TABLE `driverlicense` (
   `passed` varchar(5) DEFAULT 'false',
   `ll_no` int(11) NOT NULL,
   `type` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`application_no`),
   UNIQUE KEY `ll_no` (`ll_no`),
   CONSTRAINT `driverlicense_ibfk_1` FOREIGN KEY (`ll_no`) REFERENCES `learnerlicense` (`application_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -151,6 +182,32 @@ INSERT INTO `ll_type` VALUES (54,'preet','MC 50CC'),(56,'preet','HTV'),(57,'pree
 UNLOCK TABLES;
 
 --
+-- Table structure for table `police_login`
+--
+
+DROP TABLE IF EXISTS `police_login`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `police_login` (
+  `username` varchar(15) NOT NULL,
+  `fname` varchar(15) DEFAULT NULL,
+  `lname` varchar(15) DEFAULT NULL,
+  `password` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `police_login`
+--
+
+LOCK TABLES `police_login` WRITE;
+/*!40000 ALTER TABLE `police_login` DISABLE KEYS */;
+INSERT INTO `police_login` VALUES ('preet','maiya','Preetham','Maiya');
+/*!40000 ALTER TABLE `police_login` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user_login`
 --
 
@@ -217,6 +274,32 @@ LOCK TABLES `vehicle` WRITE;
 INSERT INTO `vehicle` VALUES (1,'KA03 - Indiranagar, Bangalore','preet','false','Preetha','AMaiy','9998887776','45','Blore','123456','null','null','null','null','null','null','3452','21432','FIRM','undefined'),(2,'KA04 - Yeshwanthpur, Bangalore','mallu','false','Malika','Makker','9292929292','sample add','sampl','560023','female','null','null','null','null','null','23423525','23423235','INDIVIDUAL','NON-TRANSPORT'),(3,'KA04 - Yeshwanthpur, Bangalore','layeeq','false','Layeeq','Ahmed','9879879876','my house','mycity','560032','male','null','null','null','null','null','84483929','2929492','INDIVIDUAL','NON-TRANSPORT'),(4,'KA04 - Yeshwanthpur, Bangalore','layeeq','false','Layeeq','Ahmed','9879879876','perma house','mycity','560021','male','null','null','null','null','null','999213312','999234324','INDIVIDUAL','TRANSPORT'),(5,'KA01 - Koramangala, Bangalore','mallu','false','Preetham','Maiya','9999999999','#45','Blore','789987','null','null','null','null','null','null','5676','5678','INDIVIDUAL','NON-TRANSPORT');
 /*!40000 ALTER TABLE `vehicle` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `violations`
+--
+
+DROP TABLE IF EXISTS `violations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `violations` (
+  `no` varchar(2) NOT NULL,
+  `reason` varchar(150) DEFAULT NULL,
+  `act` varchar(150) DEFAULT NULL,
+  `fine` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`no`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `violations`
+--
+
+LOCK TABLES `violations` WRITE;
+/*!40000 ALTER TABLE `violations` DISABLE KEYS */;
+INSERT INTO `violations` VALUES ('1','Dangerous Drive Two Wheeler','M.V.Act 184','300'),('10','Defective Fare Meter','16 Clause (K)','100'),('11','Defective Silencer','16 Clause 120','100'),('12','Emitting Black Somke','190 Clause (2)','300'),('13','Shrill Horn','190 Clause (2)','100'),('14','Without Permit','190 Clause 192','-1'),('15','Without Driving License Two Wheeler','Sec.3 read with Sec.181 of the M.V. Act.','300'),('16','Without Driving License Non-Transport Vehicle','Sec.3 read with Sec.181 of the M.V. Act.','400'),('17','Without Driving License Transport Vehicle','Sec.3 read with Sec.181 of the M.V. Act.','500'),('18','Driving a Motor Vehicle in any public place by an under aged person','Sec.4 read with Sec.181 of the M.V. Act.','500'),('19','Owner of a Motor Vehicle permitted any person to drive his/her Vehicle in contravention of section 3 or 4','Sec.5 read with Sec.180 of the M.V. Act.','1000'),('2','Dangerous Drive Non-Transport Vehicle(White Board)','M.V.Act 184','400'),('20','Jumping Traffic Signal','Rule 119, read with section 177, M.V. Act','100'),('21','Wrong Parking','190 Clause 117','100'),('22','Cutting Yellow Lane/Lane Discipline','190 Clause 119','100'),('23','Defective Number Plate','190 Clause 50','100'),('24','No Entry','190 Clause 115','100'),('25','H.T.V. Prohibited','115 R/w 177','100'),('26','Without Uniform','14 R/w 177','100'),('27','Without I.C','14 R/w 106','500'),('28','Without F.C','14 R/w 56','-1'),('29','Defective Head Light','14 R/w 106','100'),('3','Dangerous Drive Transport Vehicle(Yellow Board)','M.V.Act 184','500'),('30','Without Tail Light','14 R/w 250','100'),('31','Driving any Motor Vehicle without number plate','Rule 50 of the Central Motor Vehicle Rules read with section 177 of the M.V. Act','200'),('32','Footboard Traveling','94 Clause (2)','100'),('33','Gents Traveling Ladies Seat in BMTC Bus','94 Clause (4)','100'),('34','Holding / using Mobile Phone while Driving / riding a Vehicle','Section 230 (A) KMVR R/W Sec 177, I.M.V Act','100'),('35','Not wearing Helmet to head while riding the Vehicle','230 of the KMVR 1989 in sub rule (1)','100'),('36','Triple riding','Section 128 (1), MV Act R/W sec 177 MV Act','100'),('37','Wrong Parking + Towing charges(2Wheeler)',' NA ','300'),('38','Wrong Parking + Towing charges (Car)',' NA ','400'),('39','Wrong Parking + Towing charges (HGV)',' NA ','500'),('4','Whoever drives a Vehicle or cause Vehicle to be driven at a speed exceeding the maximum speed fixed','Section 112 read with sec.183(1) & (2) of M.V. Act','300'),('40','Driving without wearing Seat Belt',' NA ','100'),('41','Using Black Film/Other Materials',' NA ','200'),('5','Racing & trails of speed','Section.189 of M.V. Act','500'),('6','Carrying excess passengers ini) 3 Wheeled Vehicleii) Transport Vehicles including buses','Section 177 of the M.V. Act','100'),('7','Drunken Drive','M.V.Act 185','-1'),('8','No Parking','Section 177 of M.V. Act','100'),('9','Demanding Excess Fare & refusal to come for hire etc., by Autoricksaw Driver or Taxi Driver','Rule 13 (U) of the KMV Rules read with Section 177 of the M.V. Act','200');
+/*!40000 ALTER TABLE `violations` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -227,4 +310,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-23 23:42:54
+-- Dump completed on 2017-11-26 22:46:15

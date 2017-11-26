@@ -31,6 +31,7 @@ app.get('/driverList', adminController.driverList)
 app.post('/approveDriver', adminController.approveDriver)
 app.post('/deleteDriver', adminController.deleteDriver)
 app.get('/vehicleList', adminController.vehicleList)
+app.post('/vehiclenumber', adminController.vehiclenumber)
 app.listen(8081, function(){
   console.log('8081')
 })

@@ -13,6 +13,7 @@
        <th></th>
        <th>Chassis No</th>
        <th>Engine No</th>
+       <th>Action</th>
      </tr>
    </thead>
       <tr ng-repeat="name in l">
@@ -24,6 +25,7 @@
         <td>"{{name.rto}}"</a><td>
         <td>{{name.chassis_no}}</td>
         <td>{{name.engine_no}}</td>
+        <td><a href="" ng-click="approve(name.user, name.application_no)">Give Sequence</a></td>
       </tr>
   </table>
 </div>
