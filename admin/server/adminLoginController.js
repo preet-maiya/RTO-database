@@ -1,4 +1,5 @@
 var mysql = require('mysql')
+var dateTime = require('node-datetime');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -84,13 +85,15 @@ module.exports.driverList = function(req,res){
 
 module.exports.approveDriver = function(req,res){
   console.log(req.body);
+  var dt = dateTime.create();
+  var formatted = dt.format('d-m-Y');
   user = req.body.user;
   no = req.body.no;
-  query = "update driverlicense set passed='true' where user='"+user+"' and application_no="+no
+  query = "update driverlicense set passed='true', doi='"+formatted+"' where user='"+user+"' and application_no="+no
   connection.query(query, function(err,results,fields){
     if (err) {console.log(err);res.json({success:false, error: err})}
     else {
-      q = "delete from learnerlicense where application_no = "+req.body.ll;
+      q = "update learnerLicense set passed='done' where application_no="+req.body.ll;;
       connection.query(q, function(err, results, fields){
         if(err) console.log(err)
         else console.log("Deleted from ll list")

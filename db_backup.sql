@@ -100,6 +100,7 @@ CREATE TABLE `driverlicense` (
   `passed` varchar(5) DEFAULT 'false',
   `ll_no` int(11) NOT NULL,
   `type` varchar(15) DEFAULT NULL,
+  `doi` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`application_no`),
   UNIQUE KEY `ll_no` (`ll_no`),
   CONSTRAINT `driverlicense_ibfk_1` FOREIGN KEY (`ll_no`) REFERENCES `learnerlicense` (`application_no`)
@@ -112,7 +113,7 @@ CREATE TABLE `driverlicense` (
 
 LOCK TABLES `driverlicense` WRITE;
 /*!40000 ALTER TABLE `driverlicense` DISABLE KEYS */;
-INSERT INTO `driverlicense` VALUES (25,'KA04 - Yeshwanthpur, Bangalore','preet','Preetham','Maiya','9998887776','# 86','Blore','123455','null','null','null','null','null','null',525,'./uploads/preet~ID_Proof~51-1510504957108','./uploads/preet~Age_Proof~jpeg-1510504962355','true',57,'HMV'),(32,'KA05 - Jayanagar, Bangalore','preet','Preetham','Maiya','9999999998','No 98','Bangalore','789987','null','null','null','null','null','null',532,'./uploads/preet~ID_Proof~51-1510552611665','./uploads/preet~Age_Proof~51-1510552620134','false',59,'LMVNT');
+INSERT INTO `driverlicense` VALUES (25,'KA04 - Yeshwanthpur, Bangalore','preet','Preetham','Maiya','9998887776','# 86','Blore','123455','null','null','null','null','null','null',525,'./uploads/preet~ID_Proof~51-1510504957108','./uploads/preet~Age_Proof~jpeg-1510504962355','true',57,'HMV',NULL),(32,'KA05 - Jayanagar, Bangalore','preet','Preetham','Maiya','9999999998','No 98','Bangalore','789987','null','null','null','null','null','null',532,'./uploads/preet~ID_Proof~51-1510552611665','./uploads/preet~Age_Proof~51-1510552620134','true',59,'LMVNT','28-11-2017');
 /*!40000 ALTER TABLE `driverlicense` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -315,4 +316,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-11-28 18:00:04
+-- Dump completed on 2017-11-28 22:56:55

@@ -60,14 +60,9 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
+            
             <li class="nav-item">
-              <a class="nav-link" href="">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="" ng-click="logout()">Logout</a>
+              <a class="nav-link" href="" ng-click="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
             </li>
           </ul>
         </div>
@@ -155,6 +150,7 @@
                            <th>Drivers License Number</th>
                            <th>RTO name</th>
                            <th>Type of DL</th>
+                           <th>Date of issue</th>
                          </tr>
                        </thead>
                           <tr ng-repeat="name in confirmed_drivers">
@@ -162,6 +158,7 @@
                             <td><b>{{name.dl_no}}<b></td>
                             <td>{{name.type}}</td>
                             <td>{{name.rto}}</td>
+                            <td>{{name.doi}}</td>
                           </tr>
                       </table>
                   </div>
