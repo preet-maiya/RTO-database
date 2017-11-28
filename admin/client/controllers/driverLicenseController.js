@@ -16,7 +16,7 @@ app.controller('driverLicenseController', function($scope,$resource,$location,$w
   data:{'user': name,'no': no, 'll': ll }
 }).then(function(data){
   if(data.data.success){
-    $window.alert('Approved user '+name+' for learners license!')
+    $window.alert('Approved user '+name+' for drivers license!')
   }
   else {
     $window.alert('Error: '+data.data.error)

@@ -43,6 +43,11 @@ app.controller('learnerLicenseFormController', function($scope,$http,$location,$
       $location.path('/learnersLicenceForm1').replace();
       $scope.err = "See Cosole";
     }
+    else {
+      {
+        $scope.err = "Already applied for this type before!"
+      }
+    }
   })
 }}
 });

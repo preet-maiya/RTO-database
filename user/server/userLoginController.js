@@ -22,8 +22,15 @@ module.exports.login = function(req, res){
     res.send(false);
     else
     {
-      console.log("user "+req.body.userid+" trying to log in...\n\n")
-      res.send(true);
+      console.log(results);
+      if(results[0].password===password)
+      {
+        console.log("user "+req.body.userid+" trying to log in...\n\n")
+        res.send(true);
+      }
+      else {
+        res.send(false);
+      }
       }
     }
   })
@@ -98,7 +105,18 @@ connection.query(query, function(err,results,fields){
     var insert = "insert into ll_type values("+number+", '"+data.user+"', '"+data.type+"')"
     connection.query(insert, function(err,results, fields){
       if(err)
-      console.log(err);
+      {
+        var del = "delete from learnerlicense where application_no="+number;
+        connection.query(del, function(err,results,fields){
+          if(err)
+          console.log(err)
+          else {
+            console.log("Removed erronuous entry.")
+          }
+        })
+        console.log(err);
+        res.send(false)
+      }
       else {
         res.send(true)
       }
@@ -230,6 +248,30 @@ module.exports.confirmed_drivers = function(req,res){
     console.log(err);
     else {
       console.log(results);
+      res.send(results)
+    }
+  })
+}
+
+module.exports.applied_vehicle = function(req,res){
+  console.log(req.query)
+  query = "select * from vehicle where user = '"+req.query.user+"' and passed='false';"
+  connection.query(query, function(err,results,fields){
+    if(err)
+    console.log(err);
+    else {
+      res.send(results)
+    }
+  })
+}
+
+module.exports.confirmed_vehicle = function(req,res){
+  console.log(req.query)
+  query = "select * from vehicle where user = '"+req.query.user+"' and passed='true';"
+  connection.query(query, function(err,results,fields){
+    if(err)
+    console.log(err);
+    else {
       res.send(results)
     }
   })

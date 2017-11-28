@@ -18,13 +18,15 @@ module.exports.login = function(req, res){
   connection.query(query, function (error, results, fields) {
   if (error) res.send(error);
   else {
-    if(results[0]===undefined)
-    res.send(false);
-    else
+    console.log(results);
+    if(results[0].password===password)
     {
-      console.log("user "+req.body.userid+" trying to log in...\n\n")
+      console.log("police "+req.body.userid+" trying to log in...\n\n")
       res.send(true);
-      }
+    }
+    else {
+      res.send(false);
+    }
     }
   })
 }

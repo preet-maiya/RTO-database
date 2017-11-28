@@ -73,6 +73,8 @@ app.post('/driversLicence', userController.driversLicence)
 app.post('/vehicleRegister', userController.vehicleRegister)
 app.get('/applied_drivers', userController.applied_drivers);
 app.get('/confirmed_drivers', userController.confirmed_drivers);
+app.get('/applied_vehicle', userController.applied_vehicle);
+app.get('/confirmed_vehicle', userController.confirmed_vehicle);
 app.get('/fines', userController.fines);
 app.post('/upload', function(req, res) {
         upload(req,res,function(err){

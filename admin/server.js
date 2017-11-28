@@ -2,6 +2,7 @@ var express = require('express');
 var app = express()
 var mysql = require('mysql')
 var bodyParser = require('body-parser')
+var morgan = require('morgan')
 var adminController = require('./server/adminLoginController')
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -9,6 +10,7 @@ var connection = mysql.createConnection({
   password : 'maiya',
   database : 'rto'
 });
+app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({
   extended: false
 }));

@@ -58,4 +58,14 @@ app.controller('landingPageController', function($scope, $resource, $cookieStore
   name.query({user:user}, function(results){
     $scope.confirmed_drivers = results;
   })
+
+  var name = $resource('/applied_vehicle');
+  name.query({user:user}, function(results){
+    $scope.applied_vehicle = results;
+  })
+
+  var name = $resource('/confirmed_vehicle');
+  name.query({user:user}, function(results){
+    $scope.confirmed_vehicle = results;
+  })
 })

@@ -122,9 +122,8 @@
                   <tr ng-repeat="name in confirmed_learners">
 
                     <td><b>{{name.ll_no}}<b></td>
-                      <td>{{name.type}}</td>
+                    <td>{{name.type}}</td>
                     <td>{{name.rto}}</td>
-                    <td
                   </tr>
               </table>
             </div>
@@ -142,9 +141,8 @@
                       <tr ng-repeat="name in applied_drivers">
 
                         <td><b>{{name.application_no}}<b></td>
-                          <td>{{name.type}}</td>
+                        <td>{{name.type}}</td>
                         <td>{{name.rto}}</td>
-                        <td
                       </tr>
                   </table>
                 </div>
@@ -162,12 +160,54 @@
                           <tr ng-repeat="name in confirmed_drivers">
 
                             <td><b>{{name.dl_no}}<b></td>
-                              <td>{{name.type}}</td>
+                            <td>{{name.type}}</td>
                             <td>{{name.rto}}</td>
-                            <td
                           </tr>
                       </table>
                   </div>
+
+                  <div class="container" style="margin-top:64px">
+                        <table class="table table-striped">
+                          <h1>List of Applied Vehcle Registration</h1>
+                          <thead>
+                           <tr>
+                             <th>Application no.</th>
+                             <th>RTO name</th>
+                             <th>Chassis no.</th>
+                             <th>engine no.</th>
+                           </tr>
+                         </thead>
+                            <tr ng-repeat="name in applied_vehicle">
+
+                              <td><b>{{name.application_no}}<b></td>
+                              <td>{{name.rto}}</td>
+                              <td>{{name.chassis_no}}</td>
+                              <td>{{name.chassis_no}}</td>
+                              <td>{{name.engine_no}}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="container" style="margin-top:64px">
+                          <table class="table table-striped">
+                            <h1>List of Confirmed Vehcle Registration</h1>
+                            <thead>
+                             <tr>
+                               <th>Reg no.</th>
+                               <th>RTO name</th>
+                               <th>Chassis no.</th>
+                               <th>engine no.</th>
+                             </tr>
+                           </thead>
+                              <tr ng-repeat="name in confirmed_vehicle">
+                                <td><b>{{name.regno}}<b></td>
+                                <td>{{name.rto}}</td>
+                                <td>{{name.chassis_no}}</td>
+                                <td>{{name.chassis_no}}</td>
+                                <td>{{name.engine_no}}</td>
+                              </tr>
+                          </table>
+                      </div>
 
 
     <!-- Bootstrap core JavaScript -->
