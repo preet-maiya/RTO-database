@@ -7,12 +7,12 @@ app.controller('vehicleController', function($scope,$resource,$location,$window,
     $scope.l=results
     details = results
   })
-  $scope.approve = function(name,no) {
-    var seq = prompt("Gibe the sequence number");
+  $scope.approve = function(name,no,rto) {
+    var seq = prompt("Give the sequence number: ");
     $http({
   url: '/vehiclenumber',
   method: 'post',
-  data:{'user': name,'no': no, 'sequence': seq }
+  data:{'user': name,'no': no, 'sequence': seq, 'rto': rto }
 }).then(function(data){
   if(data.data.success){
     $window.alert('Gave user '+name+' a sequence and validated!')

@@ -34,6 +34,11 @@ app.controller('landingPageController', function($scope, $resource, $cookieStore
   $scope.registerVehicle = function() {
     $location.path('/registerVehicleForm').replace();
   }
+
+  $scope.userFines = function() {
+    $location.path('/userFines').replace();
+  }
+
   var name = $resource('/applied_learners');
   name.query({user:user}, function(results){
     $scope.applied_learners = results;

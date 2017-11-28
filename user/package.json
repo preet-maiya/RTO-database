@@ -11,7 +11,8 @@
     "morgan": "^1.9.0",
     "multer": "1.1.0",
     "mysql": ">=2.15.0",
-    "popper.js": "^1.12.5"
+    "popper.js": "^1.12.5",
+    "node-datetime": "*"
   },
   "main": "server.js",
   "scripts": {

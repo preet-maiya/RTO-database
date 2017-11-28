@@ -1,5 +1,6 @@
 var mysql = require('mysql')
 var fs = require('fs')
+var dateTime = require('node-datetime');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -209,6 +210,18 @@ module.exports.applied_drivers = function(req,res){
   })
 }
 
+module.exports.fines = function(req,res){
+  console.log(req.query)
+  query = "select * from booking b,vehicle v, violations viol where v.regno = b.regno and v.user='"+req.query.user+"' and b.violationno=viol.no"
+  connection.query(query, function(err,results,fields){
+    if(err)
+    console.log(err);
+    else {
+      res.send(results)
+    }
+  })
+}
+
 module.exports.confirmed_drivers = function(req,res){
   console.log(req.query)
   query = "select * from driverlicense where user = '"+req.query.user+"' and passed='true';"
@@ -216,6 +229,7 @@ module.exports.confirmed_drivers = function(req,res){
     if(err)
     console.log(err);
     else {
+      console.log(results);
       res.send(results)
     }
   })

@@ -24,7 +24,7 @@ $scope.fine = function(){
     method: 'post',
     data: {"regno": $scope.rto+" "+$scope.no, "violation": $scope.violation_no, "police": $cookieStore.get('police')}
   }).then(function(data){
-  if(data.data===true){
+  if(data.data.success===true){
       $scope.success = "Successfully registered";
       $scope.no = "";
       $scope.violation_no = "";
@@ -33,6 +33,7 @@ $scope.fine = function(){
   else
   //$scope.userid="preetam"
   $scope.err = 'Registration Unsuccessful'
+  console.log(data.data);
 },function(err){})
 }
 

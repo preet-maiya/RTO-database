@@ -30,6 +30,10 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: './views/registerVehicle.html',
     controller: 'registerVehicleController'
   })
+  .when('/userFines', {
+    templateUrl: './views/userFines.html',
+    controller: 'userFinesController'
+  })
   .when('/policeLogin', {
     templateUrl: './views/policeLogin.html',
     controller: 'policeLoginController'

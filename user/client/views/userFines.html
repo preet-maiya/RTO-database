@@ -1,0 +1,24 @@
+<div class="container" style="margin-top:64px">
+      <table class="table table-striped">
+        <h1 style="margin-bottom:32px" class="col-md-offset-5">List of fines</h1>
+        <thead>
+         <tr>
+           <th>Registration No.</th>
+           <th>Reason</th>
+           <th>Act</th>
+           <th>Date</th>
+           <th>Time</th>
+           <th>Fine</th>
+         </tr>
+       </thead>
+          <tr ng-repeat="name in fines">
+            <td><strong>{{name.regno}}<strong></td>
+            <td class="col-md-4"><b>{{name.reason}}<b></td>
+            <td>{{name.act}}</td>
+            <td>{{name.date}}</td>
+            <td>{{name.time}}</td>
+            <td>{{name.fine}}</td>
+          </tr>
+      </table>
+</div>
+<span style="color:red; position: absolute;bottom: 0;left: 0;margin-left:32px"><span style="color:black">*</span>  -1 as fine is Court Mandated Fine</span>

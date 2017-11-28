@@ -1,5 +1,6 @@
 var mysql = require('mysql')
 var fs = require('fs')
+var dateTime = require('node-datetime');
 
 var connection = mysql.createConnection({
   host     : 'localhost',
@@ -68,5 +69,18 @@ module.exports.getViolations = function(req,res) {
 
 module.exports.fine = function(req,res) {
   console.log(req.body);
-  res.send(true);
+  var dt = dateTime.create();
+  var formatted = dt.format('d-m-Y H:M:S');
+  var date = formatted.split(' ')[0];
+  var time = formatted.split(' ')[1];
+  var query = "insert into booking values('"+req.body.regno+"','"+req.body.violation+"','"+req.body.police+"','"+time+"','"+date+"')";//regno,violation_no,police,time,date
+  connection.query(query, function(err,results,fields){
+    if(err){
+      console.log(err);
+      res.json({success: false, reason:err.code})
+    }
+    else {
+      res.json({success:true});
+    }
+  })
 }

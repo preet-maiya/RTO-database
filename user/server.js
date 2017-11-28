@@ -4,6 +4,7 @@ var multer = require('multer');
 var mysql = require('mysql')
 var bodyParser = require('body-parser')
 var morgan = require('morgan')
+var dateTime = require('node-datetime');
 var userController = require('./server/userLoginController')
 var policeController = require('./server/policeController')
 var connection = mysql.createConnection({
@@ -72,6 +73,7 @@ app.post('/driversLicence', userController.driversLicence)
 app.post('/vehicleRegister', userController.vehicleRegister)
 app.get('/applied_drivers', userController.applied_drivers);
 app.get('/confirmed_drivers', userController.confirmed_drivers);
+app.get('/fines', userController.fines);
 app.post('/upload', function(req, res) {
         upload(req,res,function(err){
             if(err){
@@ -87,6 +89,7 @@ app.post('/policeLogin',policeController.login);
 app.post('/policeRegister', policeController.register);
 app.get('/getViolations', policeController.getViolations);
 app.post('/fine', policeController.fine);
+
 
 app.listen(8080, function(){
   console.log('8080')

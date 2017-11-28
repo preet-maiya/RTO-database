@@ -24,7 +24,7 @@ app.controller('policeLoginController', function($scope, $http, $location, $cook
     if(data.data===true){
         $scope.error = ''
         ActiveUser.setuser($scope.userid);
-        $cookieStore.put('user', $scope.userid)
+        $cookieStore.put('police', $scope.userid)
         $location.path('/fines').replace();
         $scope.$apply()
     }

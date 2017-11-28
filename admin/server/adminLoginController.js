@@ -122,7 +122,7 @@ module.exports.vehicleList = function(req,res) {
 
 module.exports.vehiclenumber = function (req,res) {
   console.log(req.body);
-  query = "update vehicle set passed = 'true', regno='"+req.body.sequence+"' where application_no = "+req.body.no;
+  query = "update vehicle set passed = 'true', regno='"+req.body.rto.split('-')[0]+req.body.sequence+"' where application_no = "+req.body.no;
   connection.query(query, function(err,results,fields){
     if(err)
     {console.log(err);res.json({success:false, error: err})}

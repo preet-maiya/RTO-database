@@ -5,6 +5,7 @@ app.controller('userController', function($scope, $http, $location, $cookieStore
     $location.path('/LandingPage').replace();
   }
   $scope.police = function(){
+    console.log("yoohoo");
     $location.path('/policeLogin').replace();
   }
   $scope.page = "Login";
