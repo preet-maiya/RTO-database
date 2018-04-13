@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Installing required packages...\n\n"
-sudo apt-get install nodejs-dev
+sudo apt-get install mysql-server nodejs-dev
 cd New/ && sudo npm install
 cd ..
 cd admin/ && sudo npm install
